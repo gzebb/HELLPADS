@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:black;
+    overflow: hidden;
+}
+
+.marquee{    
+    white-space: nowrap;
+    position: absolute;
+    animation: scrolling 30s linear infinite;
+    z-index: 1;
+}
+
+@keyframes scrolling {
+    0% { transform: translate(-30.6%,0);}
+    100% { transform: translate(-0.6%,0);}
+}
+
+.marquee span{
+    color:#960000;
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    padding-left: 20px;
+    display: inline;
+}
+
+header{
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+main{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#meny {
+    background: #960000;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    transition-timing-function: cubic-bezier(10,2,3,1);
+    transform: translateY(100%);
+    top: 0;
+    z-index: 1;
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navtext {
+    font-family: "Cormorant";
+    font-size: 100px;
+    width: fit-content;
+    text-align: center;
+    display: block;
+}
+
+#menyAvPaa {
+    display: none;
+}
+
+#menyAvPaa:checked ~ #meny {
+    transform: translateX(0rem);
+}
+
+#burger {
+    margin-top: 50px;
+    cursor: pointer;
+    width: 4rem;
+    height: 1.5rem;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    z-index: 2;
+}
+
+#burger > div {
+    height: 5px;
+    background-color: #960000;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+#menyAvPaa:checked ~ #burger > div {
+  background-color: black;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(2) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.rotating{
+    color: #960000;
+    height: 500px;
+    width: 500px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.rotating img{
+    animation: rotate 60s linear 0s infinite;
+}
+
+@keyframes rotate {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+
